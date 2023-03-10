@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Laplace Transform</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/style.css">
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script type="text/javascript" async
+  		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/CommonHTML"],
+			tex2jax: {
+				inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+				processEscapes: true
+			},
+			"HTML-CSS": { linebreaks: { automatic: true } },
+			showMathMenu: false
+		});
+	</script>
+</head>
+<body>
+<div class="container">
+  <h1>Laplace Transform of a Constant Function</h1>
+  <div class="equation">
+    <p>The Laplace transform of a constant function f(t) = 1 is given by:</p>
+    <p>$$L\{f(t)\} = L\{1\} = \int_0^\infty e^{-st} dt$$</p>
+    <p>Evaluating the integral, we get:</p>
+    <p>$$L\{1\} = \left[-\frac{1}{s} e^{-st}\right]_0^\infty = \frac{1}{s}$$</p>
+  </div>
+</div>
+<div class="container">
+  <h1>Laplace Transform of t^n</h1>
+  <div class="formula">
+    <p>Using the definition of the Laplace transform, we have:</p>
+    <p>$$ \mathcal{L}\{t^n\} = \int_0^{\infty} e^{-st} t^n dt $$</p>
+  </div>
+  <div class="solution">
+    <p>To evaluate this integral, we can use integration by parts:</p>
+    <p>$$ \begin{aligned}
+      \mathcal{L}\{t^n\} &= \int_0^{\infty} e^{-st} t^n dt \\
+      &= \left[-\frac{t^n}{s} e^{-st}\right]_0^{\infty} + \frac{n}{s} \int_0^{\infty} e^{-st} t^{n-1} dt \\
+      &= \frac{n}{s} \int_0^{\infty} e^{-st} t^{n-1} dt \\
+      &= \frac{n}{s} \cdot \frac{n-1}{s} \int_0^{\infty} e^{-st} t^{n-2} dt \\
+      &= \frac{n}{s} \cdot \frac{n-1}{s} \cdot \frac{n-2}{s} \int_0^{\infty} e^{-st} t^{n-3} dt \\
+      &\vdots \\
+      &= \frac{n!}{s^{n}} \int_0^{\infty} e^{-st} dt \\
+      &= \frac{n!}{s^{n+1}}
+      \end{aligned} $$</p>
+    <p>Therefore, we have found that the Laplace transform of $t^n$ is:</p>
+    <p>$$ \mathcal{L}\{t^n\} = \frac{n!}{s^{n+1}} $$</p>
+  </div>
+</div>
+</body>
+</html>
